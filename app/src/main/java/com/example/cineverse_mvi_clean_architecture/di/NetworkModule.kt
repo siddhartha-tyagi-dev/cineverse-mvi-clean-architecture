@@ -21,11 +21,10 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideAuthInterceptor(): Interceptor = Interceptor { chain ->
-        val token = BuildConfig.TMDB_ACCESS_TOKEN
         val requestBuilder = chain.request().newBuilder()
 
-        if (token.isNotBlank()) {
-            requestBuilder.header("Authorization", "Bearer $token")
+        if (BuildConfig.TMDB_ACCESS_TOKEN.isNotBlank()) {
+            requestBuilder.header("Authorization", "Bearer ${BuildConfig.TMDB_ACCESS_TOKEN}")
         }
 
         chain.proceed(requestBuilder.build())

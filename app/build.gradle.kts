@@ -15,6 +15,33 @@ val localProperties = Properties().apply {
         }
     }
 }
+val secretProperties = Properties().apply {
+    val secretPropertiesFile = rootProject.file("secret.properties")
+    if (secretPropertiesFile.exists()) {
+        secretPropertiesFile.inputStream().use { inputStream ->
+            load(inputStream)
+        }
+    }
+}
+
+fun Properties.token(vararg keys: String): String =
+    keys.firstNotNullOfOrNull { key ->
+        getProperty(key)
+            ?.trim()
+            ?.trim('"')
+            ?.takeIf(String::isNotBlank)
+    }
+        .orEmpty()
+        .replace("\\", "\\\\")
+        .replace("\"", "\\\"")
+
+val debugTmdbAccessToken = secretProperties
+    .token("dev.TMDB_ACCESS_TOKEN", "TMDB_ACCESS_TOKEN")
+    .ifBlank { localProperties.token("TMDB_ACCESS_TOKEN") }
+
+val releaseTmdbAccessToken = secretProperties
+    .token("prod.TMDB_ACCESS_TOKEN", "TMDB_ACCESS_TOKEN")
+    .ifBlank { localProperties.token("TMDB_ACCESS_TOKEN") }
 
 android {
     namespace = "com.example.cineverse_mvi_clean_architecture"
@@ -32,15 +59,24 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField(
-            "String",
-            "TMDB_ACCESS_TOKEN",
-            "\"${localProperties.getProperty("TMDB_ACCESS_TOKEN", "")}\"",
-        )
     }
 
     buildTypes {
+        debug {
+            buildConfigField(
+                "String",
+                "TMDB_ACCESS_TOKEN",
+                "\"$debugTmdbAccessToken\"",
+            )
+        }
+
         release {
+            buildConfigField(
+                "String",
+                "TMDB_ACCESS_TOKEN",
+                "\"$releaseTmdbAccessToken\"",
+            )
+
             optimization {
                 enable = false
             }
