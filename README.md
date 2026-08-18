@@ -17,15 +17,15 @@ The app uses TMDB for movie data and images, and stores favorites locally with R
 
 ## Screenshots
 
-Add final emulator screenshots before publishing the repository:
+Screenshots were captured from the Android app running on a connected device.
 
-| Screen | Suggested file |
+| Home | Search | Details |
+| --- | --- | --- |
+| <img src="docs/screenshots/home.png" alt="CineVerse Home screen" width="220"> | <img src="docs/screenshots/search.png" alt="CineVerse Search screen" width="220"> | <img src="docs/screenshots/details.png" alt="CineVerse Movie Details screen" width="220"> |
+
+| Favorites | About |
 | --- | --- |
-| Home | `docs/screenshots/home.png` |
-| Search | `docs/screenshots/search.png` |
-| Details | `docs/screenshots/details.png` |
-| Favorites | `docs/screenshots/favorites.png` |
-| About | `docs/screenshots/about.png` |
+| <img src="docs/screenshots/favorites.png" alt="CineVerse Favorites screen" width="220"> | <img src="docs/screenshots/about.png" alt="CineVerse About screen" width="220"> |
 
 ## Architecture
 
@@ -144,4 +144,4 @@ TMDB attribution requirements are documented in the official TMDB API Terms of U
 
 ## Release Notes
 
-This project is portfolio-oriented and non-commercial. Before publishing a public repository, add real screenshots under `docs/screenshots/`, rotate any token that was ever committed locally, and verify release signing if distributing outside a debug build.
+This project is portfolio-oriented and non-commercial. Before publishing a public repository, rotate any token that was ever committed locally and verify release signing if distributing outside a debug build.
