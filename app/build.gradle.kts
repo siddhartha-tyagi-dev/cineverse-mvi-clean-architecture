@@ -111,10 +111,14 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.runtime)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.room.runtime)
 
     ksp(libs.dagger.hilt.compiler)
+    ksp(libs.room.compiler)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 
@@ -123,4 +127,6 @@ dependencies {
     testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.room.testing)
 }

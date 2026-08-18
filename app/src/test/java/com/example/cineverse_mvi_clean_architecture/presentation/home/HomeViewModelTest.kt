@@ -1,6 +1,8 @@
 package com.example.cineverse_mvi_clean_architecture.presentation.home
 
+import androidx.paging.PagingData
 import com.example.cineverse_mvi_clean_architecture.domain.model.Movie
+import com.example.cineverse_mvi_clean_architecture.domain.model.MovieDetails
 import com.example.cineverse_mvi_clean_architecture.domain.repository.MovieRepository
 import com.example.cineverse_mvi_clean_architecture.domain.usecase.GetHomeMoviesUseCase
 import kotlinx.coroutines.Dispatchers
@@ -10,6 +12,8 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -84,4 +88,13 @@ private class FakeMovieRepository(
     override suspend fun getTrendingMovies(): Result<List<Movie>> = result
     override suspend fun getNowPlayingMovies(): Result<List<Movie>> = result
     override suspend fun getTopRatedMovies(): Result<List<Movie>> = result
+    override fun searchMovies(query: String): Flow<PagingData<Movie>> = flowOf(PagingData.empty())
+    override suspend fun getMovieDetails(movieId: Int): Result<MovieDetails> =
+        Result.failure(UnsupportedOperationException())
+    override fun getFavoriteMovies(): Flow<List<Movie>> = flowOf(emptyList())
+    override fun isMovieFavorite(movieId: Int): Flow<Boolean> = flowOf(false)
+    override suspend fun addFavorite(movie: MovieDetails): Result<Unit> =
+        Result.failure(UnsupportedOperationException())
+    override suspend fun removeFavorite(movieId: Int): Result<Unit> =
+        Result.failure(UnsupportedOperationException())
 }

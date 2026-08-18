@@ -14,7 +14,9 @@ ksp = "2.3.10"
 lifecycle = "2.9.4"
 mockk = "1.14.5"
 okhttp = "5.1.0"
+paging = "3.5.0"
 retrofit = "3.0.0"
+room = "3.0.1"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.11.0" }
@@ -40,8 +42,13 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+room-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "room" }
+room-runtime = { group = "androidx.room3", name = "room3-runtime", version.ref = "room" }
+room-testing = { group = "androidx.room3", name = "room3-testing", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
