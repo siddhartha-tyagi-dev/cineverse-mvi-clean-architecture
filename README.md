@@ -17,8 +17,6 @@ The app uses TMDB for movie data and images, and stores favorites locally with R
 
 ## Screenshots
 
-Screenshots were captured from the Android app running on a connected device.
-
 | Home | Search | Details |
 | --- | --- | --- |
 | <img src="docs/screenshots/home.png" alt="CineVerse Home screen" width="220"> | <img src="docs/screenshots/search.png" alt="CineVerse Search screen" width="220"> | <img src="docs/screenshots/details.png" alt="CineVerse Movie Details screen" width="220"> |
@@ -66,7 +64,7 @@ Main package layout:
 Never commit a real TMDB token.
 
 1. Create a TMDB API Read Access Token in your TMDB account settings.
-2. Copy `local.properties.example` to `local.properties`, or edit your existing `local.properties`.
+2. Edit your existing `local.properties`.
 3. Add:
 
 ```properties
@@ -144,4 +142,4 @@ TMDB attribution requirements are documented in the official TMDB API Terms of U
 
 ## Release Notes
 
-This project is portfolio-oriented and non-commercial. Before publishing a public repository, rotate any token that was ever committed locally and verify release signing if distributing outside a debug build.
+This project is portfolio-oriented and non-commercial.
