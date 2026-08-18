@@ -50,6 +50,7 @@ import com.example.cineverse_mvi_clean_architecture.domain.model.CastMember
 import com.example.cineverse_mvi_clean_architecture.domain.model.Movie
 import com.example.cineverse_mvi_clean_architecture.domain.model.MovieDetails
 import com.example.cineverse_mvi_clean_architecture.presentation.components.MoviePosterCard
+import java.util.Locale
 
 @Composable
 fun MovieDetailsRoute(
@@ -564,4 +565,4 @@ private fun MovieDetails.runtimeLabel(): String {
     }
 }
 
-private fun Double.oneDecimal(): String = String.format("%.1f", this)
+private fun Double.oneDecimal(): String = String.format(Locale.US, "%.1f", this)

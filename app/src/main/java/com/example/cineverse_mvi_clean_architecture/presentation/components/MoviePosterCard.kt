@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.cineverse_mvi_clean_architecture.domain.model.Movie
+import java.util.Locale
 
 @Composable
 fun MoviePosterCard(
@@ -88,4 +89,4 @@ private fun Movie.releaseYear(): String = releaseDate
     ?.take(4)
     ?: "TBA"
 
-private fun Double.oneDecimal(): String = String.format("%.1f", this)
+private fun Double.oneDecimal(): String = String.format(Locale.US, "%.1f", this)
