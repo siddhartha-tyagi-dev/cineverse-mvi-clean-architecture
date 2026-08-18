@@ -17,7 +17,7 @@ The app uses TMDB for movie data and images, and stores favorites locally with R
 
 ## Screenshots
 
-Add final emulator screenshots before publishing the repository:
+Final emulator screenshot:
 
 | Screen | Suggested file |
 | --- | --- |
@@ -63,10 +63,8 @@ Main package layout:
 
 ## TMDB API Setup
 
-Never commit a real TMDB token.
-
 1. Create a TMDB API Read Access Token in your TMDB account settings.
-2. Copy `local.properties.example` to `local.properties`, or edit your existing `local.properties`.
+2. Edit your existing `local.properties`.
 3. Add:
 
 ```properties
@@ -89,14 +87,6 @@ The app reads the value into `BuildConfig.TMDB_ACCESS_TOKEN` at build time and s
 ```
 
 Open the project in Android Studio, sync Gradle, select an emulator/device, and run the `app` configuration.
-
-For this Windows workspace, Gradle was verified with:
-
-```powershell
-$env:GRADLE_USER_HOME = Join-Path (Get-Location) '.gradle'
-$env:ANDROID_USER_HOME = Join-Path (Get-Location) '.android'
-./gradlew :app:testDebugUnitTest --no-configuration-cache --no-daemon --max-workers=1 --console=plain "-Dorg.gradle.jvmargs=-Xmx1280m -XX:TieredStopAtLevel=1 -Dfile.encoding=UTF-8" "-Dkotlin.compiler.execution.strategy=in-process"
-```
 
 ## Testing
 
@@ -144,4 +134,4 @@ TMDB attribution requirements are documented in the official TMDB API Terms of U
 
 ## Release Notes
 
-This project is portfolio-oriented and non-commercial. Before publishing a public repository, add real screenshots under `docs/screenshots/`, rotate any token that was ever committed locally, and verify release signing if distributing outside a debug build.
+This project is portfolio-oriented and non-commercial.
